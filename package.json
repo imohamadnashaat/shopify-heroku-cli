@@ -4,6 +4,14 @@
   "description": "CLI tool to deploy Shopify app environment variables to Heroku",
   "license": "MIT",
   "author": "imohamadnashaat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imohamadnashaat/shopify-heroku-cli.git"
+  },
+  "homepage": "https://github.com/imohamadnashaat/shopify-heroku-cli",
+  "bugs": {
+    "url": "https://github.com/imohamadnashaat/shopify-heroku-cli/issues"
+  },
   "type": "module",
   "main": "bin/index.js",
   "bin": {
@@ -19,5 +27,14 @@
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "keywords": [
+    "shopify", 
+    "heroku", 
+    "cli", 
+    "deploy", 
+    "environment", 
+    "variables"
+  ],
+  "preferGlobal": true
 }

@@ -1,25 +1,19 @@
 # Shopify Heroku CLI
 
-A command-line tool to deploy Shopify apps to Heroku and manage environment variables between Shopify and Heroku.
+[![npm version](https://badge.fury.io/js/shopify-heroku-cli.svg)](https://www.npmjs.com/package/shopify-heroku-cli)
+[![GitHub](https://img.shields.io/github/license/imohamadnashaat/shopify-heroku-cli)](https://github.com/imohamadnashaat/shopify-heroku-cli)
+
+A lightweight command-line tool that seamlessly deploys Shopify apps to Heroku and synchronizes environment variables between platforms.
 
 ## Installation
 
-### As an npm package
+Install globally via npm:
 
 ```bash
 npm install -g shopify-heroku-cli
 ```
 
-### Local Development
-
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/yourusername/shopify-heroku-cli.git
-cd shopify-heroku-cli
-npm install
-npm link  # Make the CLI command available globally on your machine
-```
+This will make the `shopify-heroku` command available globally on your system.
 
 ## Prerequisites
 
@@ -28,62 +22,80 @@ npm link  # Make the CLI command available globally on your machine
 - A Shopify app configured in your environment
 - A Heroku app created and ready to use
 
-## Usage
+## Quick Start
 
-The CLI supports two primary commands:
+1. Install the CLI globally:
 
-### Set Environment Variables
+   ```bash
+   npm install -g shopify-heroku-cli
+   ```
 
-Set Shopify environment variables to your Heroku app:
+2. Set up your environment variables:
+
+   ```bash
+   shopify-heroku set-env your-heroku-app-name
+   ```
+
+3. Deploy your app:
+
+   ```bash
+   shopify-heroku deploy your-heroku-app-name
+   ```
+
+## Examples
+
+**Typical Workflow:**
 
 ```bash
-shopify-heroku set-env your-heroku-app-name
+# Create a Heroku app (if you haven't already)
+heroku create my-shopify-app
+
+# Set your environment variables
+shopify-heroku set-env my-shopify-app
+
+# Deploy your app
+shopify-heroku deploy my-shopify-app
+
+# Open your app in browser
+heroku open --app my-shopify-app
 ```
 
-### Deploy App
+## Features
 
-Deploy your Shopify app to Heroku:
+**`set-env` command:**
 
-```bash
-shopify-heroku deploy your-heroku-app-name
-```
+- Automatically syncs Shopify environment variables to your Heroku app
+- Configures `SHOPIFY_API_KEY` and `SHOPIFY_API_SECRET` from your Shopify app
+- Adds your Heroku app URL as `SHOPIFY_APP_URL` in the environment
 
-## What it does
+**`deploy` command:**
 
-### Set Environment (set-env)
+- Sets up Heroku container stack configuration
+- Manages git remote setup for Heroku
+- Deploys your app with a single command
+- Handles branch detection (main/master) automatically
 
-1. Fetches environment variables from your Shopify app using Shopify CLI
-2. Extracts the `SHOPIFY_API_KEY` and `SHOPIFY_API_SECRET` values
-3. Gets the app URL from Heroku and adds it as `SHOPIFY_APP_URL`
-4. Sets all these environment variables in your Heroku app
+## Troubleshooting
 
-### Deploy (deploy)
+**Authentication Issues:**
 
-1. Sets the Heroku stack to container
-2. Configures the Heroku git remote
-3. Deploys your app to Heroku using git push
-4. Tries both 'main' and 'master' branches automatically
+- Ensure you're logged in to both Shopify CLI and Heroku CLI
+- Run `shopify auth` and `heroku login` if needed
+
+**Deployment Fails:**
+
+- Check that your Heroku app exists with `heroku apps`
+- Verify your git repository is properly initialized
+
+**Environment Variables:**
+
+- If variables aren't setting properly, try running `shopify-heroku set-env` again
+- Confirm your Shopify app is properly configured
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-MIT License
-
-Copyright (c) 2025 Mohamad Nashaat
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+[MIT](LICENSE) © 2025 Mohamad Nashaat
