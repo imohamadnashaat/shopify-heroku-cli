@@ -1,6 +1,6 @@
 {
   "name": "shopify-heroku-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to deploy Shopify app environment variables to Heroku",
   "license": "MIT",
   "author": "imohamadnashaat",
@@ -29,11 +29,11 @@
     "node": ">=16"
   },
   "keywords": [
-    "shopify", 
-    "heroku", 
-    "cli", 
-    "deploy", 
-    "environment", 
+    "shopify",
+    "heroku",
+    "cli",
+    "deploy",
+    "environment",
     "variables"
   ],
   "preferGlobal": true
